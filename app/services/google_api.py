@@ -5,13 +5,14 @@ from aiogoogle import Aiogoogle
 
 from app.core.config import settings
 from app.models import CharityProject
-
-FORMAT = '%Y/%m/%d %H:%M:%S'
+from app.core.constants import DATETIME_FORMAT_FOR_GOOGLE_SHEET
 
 
 async def spreadsheets_create(wrapper_services: Aiogoogle) -> str:
     """Функция создания гугл-таблицы."""
-    now_date_time = datetime.now().strftime(FORMAT)
+    now_date_time = datetime.now().strftime(
+        DATETIME_FORMAT_FOR_GOOGLE_SHEET
+    )
     service = await wrapper_services.discover('sheets', 'v4')
     SPREADSHEET_BODY = {
         'properties': {'title': f'Отчёт на {now_date_time}',
@@ -26,7 +27,6 @@ async def spreadsheets_create(wrapper_services: Aiogoogle) -> str:
         service.spreadsheets.create(json=SPREADSHEET_BODY)
     )
     spreadsheet_id = response['spreadsheetId']
-    print(spreadsheet_id)
     return spreadsheet_id
 
 
@@ -54,7 +54,9 @@ async def spreadsheets_update_value(
         wrapper_services: Aiogoogle
 ) -> None:
     """Функция обновления данных таблицы."""
-    now_date_time = datetime.now().strftime(FORMAT)
+    now_date_time = datetime.now().strftime(
+        DATETIME_FORMAT_FOR_GOOGLE_SHEET
+    )
     service = await wrapper_services.discover('sheets', 'v4')
     table_values = [
         ['Отчёт от', now_date_time],

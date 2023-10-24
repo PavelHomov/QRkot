@@ -40,7 +40,7 @@ class CRUDCharityProject(CRUDBase):
         """Сортирует список со всеми закрытыми проектами."""
         projects_closed = await session.execute(
             select(CharityProject).where(
-                CharityProject.fully_invested
+                CharityProject.fully_invested == 1
             )
         )
         projects_closed = projects_closed.scalars().all()
