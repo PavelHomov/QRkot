@@ -6,9 +6,9 @@ from pydantic import BaseSettings
 class Settings(BaseSettings):
     app_title: str = "Сбор пожертвований"
     app_description: str = (
-        "Приложение для Благотворительного фонда поддержки котиков QRKot"
+        "Приложение для Благотворительного фонда"
     )
-    database_url: str = "sqlite+aiosqlite:///./cat_charity_fund.db"
+    database_url: str = "sqlite+aiosqlite:///./charity_fund.db"
     secret: str = "SECRET"
     type: Optional[str] = None
     project_id: Optional[str] = None
