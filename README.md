@@ -7,7 +7,7 @@
 ## Установка
 1. Склонируйте репозиторий:
 ```
-git clone git@github.com:PavelHomov/QRkot_spreadsheets.git
+git clone git@github.com:PavelHomov/donations-project.git
 ```
 2. Активируйте venv и установите зависимости:
 ```
@@ -17,8 +17,8 @@ pip install -r requirements.txt
 ```
 3. Создайте в корневой директории файл .env со следующим наполнением:
 ```
-APP_TITLE=Кошачий благотворительный фонд
-APP_DESCRIPTION=Сервис для поддержки котиков
+APP_TITLE=Фонд
+APP_DESCRIPTION=Сервис
 DATABASE_URL=sqlite+aiosqlite:///./<название базы данных>.db
 SECRET=<секретное слово>
 
