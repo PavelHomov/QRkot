@@ -59,3 +59,4 @@ uvicorn==0.17.6
 uvloop==0.18.0
 watchgod==0.8.2
 websockets==10.3
+aiogoogle==5.5.0
